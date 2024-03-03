@@ -1,25 +1,48 @@
+<?php
+$page = ''; // Set the current page for navigation highlighting, change accordingly for each file
+include 'navigation.php'; // Include navigation
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Forgot Password | CodeLab</title>
+    <title><?php echo $page ? ucfirst($page) : 'CodeLab'; ?></title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="wrapper">
-        <div class="title">
-            Forgot Password
-        </div>
-        <p>Please enter your email address below. We will send you a link to reset your password.</p>
-        <form action="reset-password.php" method="post">
-            <div class="field">
-                <input type="email" name="email" required>
-                <label>Email Address</label>
-            </div>
-            <div class="field">
-                <input type="submit" value="Reset Password">
-            </div>
-        </form>
+    <header>
+        <h1>RecipeSwap</h1>
+        <nav>    
+            <form class="search-form" action="#" method="get">
+                <input type="text" name="search" placeholder="Search recipes by ingredients">
+                <button type="submit">Search</button>
+            </form>
+            <br>
+            <ul>
+                <li class="active"><a href="main-file.php">Home</a></li>
+                <li><a href="collections.php">Collections</a></li>
+                <li><a href="profiles.php">Profile</a></li>
+                <li><a href="login.php">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Recipe Categories</h1>
+    <div class="recipe-grid">
+        <?php
+        // Assuming you have an array of categories, you can dynamically generate cards
+        $categories = array(
+            "breakfast" => "Breakfast",
+            "meal" => "Main meals"
+            // Add more categories as needed
+        );
+
+        foreach ($categories as $key => $category) {
+            echo '<div class="recipe-card">';
+            echo '<img src="images/' . $key . '.png" alt="' . $key . '" width="150">';
+            echo '<a href="collections/' . $key . '.php" class="button">' . $category . '</a>';
+            echo '</div>';
+        }
+        ?>
     </div>
 </body>
 </html>
