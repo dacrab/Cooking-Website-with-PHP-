@@ -1,3 +1,7 @@
+<?php
+$page = 'home'; // Set the current page for navigation highlighting
+include 'navigation.php'; // Include navigation
+?>
 <!DOCTYPE html>
 <html lang="el">
 <head>
@@ -8,19 +12,7 @@
 <body>
     <header>
         <h1>RecipeSwap</h1>
-        <nav>    
-            <form class="search-form" action="search.php" method="get">
-                <input type="text" name="search" placeholder="Search recipes by ingredients">
-                <button type="submit">Search</button>
-            </form>
-            <br>
-            <ul>
-                <li class="active"><a href="main-file.php">Home</a></li>
-                <li><a href="collections.php">Collections</a></li>
-                <li><a href="profiles.php">Profile</a></li>
-                <li><a href="login.php">Login</a></li>
-            </ul>
-        </nav>
+        <?php include 'navigation.php'; ?>
     </header>
     <main>
         <section class="recipe">

@@ -1,8 +1,12 @@
+<?php
+$page = ''; // Set the current page for navigation highlighting, change accordingly for each file
+include 'navigation.php'; // Include navigation
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Login Form Design | CodeLab</title>
+    <title><?php echo $page ? ucfirst($page) : 'CodeLab'; ?></title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
